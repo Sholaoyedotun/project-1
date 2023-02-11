@@ -29,6 +29,8 @@ To test Apache HTTP server, paste in a web browser (http://Public-IP-Address:80)
 Using 'apt' to acquire and install software
 `sudo apt install mysql-server`
 
+![Open inbound port 80](./mysql-install.png)
+
 To log in
 `sudo mysql`
 
@@ -51,6 +53,7 @@ To install these 3 packages at once, run:
 To confirm your PHP version
 `php -v`
 
+![Open inbound port 80](./PHP-version.png)
 ### Creating a virtual host for your website using apache
 
 Create the directory for projectlamp using ‘mkdir’ command as follows:
@@ -75,17 +78,21 @@ This will create a new blank file. Paste in the following bare-bones configurati
 
 To save and close the file, simply follow the steps below:
 
-1. Hit the **esc** button on the keyboard
-2. Type **:**
-3. Type **wq**. w for write and q for quit
-4. Hit **ENTER** to save the file
-You can use the **ls** command to show the new file in the sites-available directory
+1. Hit the 'esc' button on the keyboard
+2. Type ':'
+3. Type 'wq'. w for write and q for quit
+4. Hit 'ENTER' to save the file
+You can use the 'ls' command to show the new file in the sites-available directory
 
+To quit without saving type 'q' and press 'enter'
+
+To discard changes, type 'q!' and press 'enter'
 With this VirtualHost configuration, we’re telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory.If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
 
 `sudo ls /etc/apache2/sites-available`
+![Open inbound port 80](./ls-Sitesavailable.png)
 
-You can now use **a2ensite** command to enable the new virtual host:
+You can now use 'a2ensite' command to enable the new virtual host:
 
 `sudo a2ensite projectlamp`
 
@@ -117,12 +124,15 @@ Now that you have a custom location to host your website’s files and folders, 
 Create a new file named *index.php* inside your custom web root folder:
 `vim /var/www/projectlamp/index.php`
 
-This will open a blank file. Add the following text, which is valid PHP code, inside the file without numbers, separate lines:
+This will open a blank file. Add the following text, which is valid PHP code, inside the file, separate lines:
 
-1. *<?php*
-2. phpinfo();
+*<?php*
+
+*phpinfo();*
 
 When you are finished, save and close the file, refresh the page and you will see a page similar to this:
+
+![Open inbound port 80](./Phpscreen.png)
 
 After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
 `sudo rm /var/www/projectlamp/index.php`
