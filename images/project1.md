@@ -99,7 +99,7 @@ You can now use 'a2ensite' command to enable the new virtual host:
 To disable Apache’s default website use a2dissite command , type:
 `sudo a2dissite 000-default`
 
-To make sure your configuration file doesn’t contain syntax errors, run:
+To make sure your configuration file doesn’t contain syntax errors, run the code below:
 `sudo apache2ctl configtest`
 
 Finally, reload Apache so these changes take effect: After every change, reload apache
