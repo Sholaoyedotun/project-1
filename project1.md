@@ -13,7 +13,9 @@ To verify that apache2 is running as a service in our OS
 ![Apache Status](./Apache_status.png)
 
 To check how we can access it locally in our Ubuntu shell,
-`curl http://localhost:80`
+```bash
+curl http://localhost:80
+```
 
 The output is html code of the website
 ![Open inbound port 80](./Open%20inbound%20port%2080.png)
@@ -21,7 +23,12 @@ The output is html code of the website
 To retrieve your public IP Address
 `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 
-To test Apache HTTP server, paste in a web browser (http://Public-IP-Address:80)
+To test Apache HTTP server, paste in a web browser:
+
+```bash
+http://Public-IP-Address:80
+```
+
 ![Apache Ubuntu Default Page](./Apache%20Ubuntu%20Default%20Page.png)
 
 
@@ -67,15 +74,16 @@ Then, create and open a new configuration file in Apache’s sites-available dir
 
 This will create a new blank file. Paste in the following bare-bones configuration by hitting on *i* on the keyboard to enter the insert mode, and paste the text:
 
-`<VirtualHost *:80>
+```bash
+<VirtualHost *:80>
     ServerName projectlamp
     ServerAlias www.projectlamp 
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/projectlamp
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>`
-
+</VirtualHost>
+````
 To save and close the file, simply follow the steps below:
 
 1. Hit the 'esc' button on the keyboard
@@ -110,7 +118,10 @@ Your new website is now active, but the web root **/var/www/projectlamp** is sti
 
 `sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html`
 
-Now go to your browser and try to open your website URL using IP address:http://Public-IP-Address:80
+Now go to your browser and try to open your website URL using IP address:
+```bash
+http://Public-IP-Address:80
+```
 
 In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive:
 `sudo vim /etc/apache2/mods-enabled/dir.conf`
@@ -126,9 +137,10 @@ Create a new file named *index.php* inside your custom web root folder:
 
 This will open a blank file. Add the following text, which is valid PHP code, inside the file, separate lines:
 
-*<?php*
-
-*phpinfo();*
+```bash
+<?php
+phpinfo();
+```
 
 When you are finished, save and close the file, refresh the page and you will see a page similar to this:
 
