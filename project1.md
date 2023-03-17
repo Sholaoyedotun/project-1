@@ -10,7 +10,7 @@ To run apache2 package installation
 To verify that apache2 is running as a service in our OS
 `sudo systemctl apache2`
 
-![Apache Status](./Apache_status.png)
+![Apache Status](./images/Apache_status.png)
 
 To check how we can access it locally in our Ubuntu shell,
 ```bash
@@ -18,7 +18,7 @@ curl http://localhost:80
 ```
 
 The output is html code of the website
-![Open inbound port 80](./Open%20inbound%20port%2080.png)
+![Open inbound port 80](./images/Open%20inbound%20port%2080.png)
 
 To retrieve your public IP Address
 `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
@@ -29,14 +29,14 @@ To test Apache HTTP server, paste in a web browser:
 http://Public-IP-Address:80
 ```
 
-![Apache Ubuntu Default Page](./Apache%20Ubuntu%20Default%20Page.png)
+![Apache Ubuntu Default Page](./images/Apache%20Ubuntu%20Default%20Page.png)
 
 
 ### Installing mysql
 Using 'apt' to acquire and install software
 `sudo apt install mysql-server`
 
-![Open inbound port 80](./mysql-install.png)
+![Open inbound port 80](./images/mysql-install.png)
 
 To log in
 `sudo mysql`
@@ -60,7 +60,7 @@ To install these 3 packages at once, run:
 To confirm your PHP version
 `php -v`
 
-![Open inbound port 80](./PHP-version.png)
+![Open inbound port 80](./images/PHP-version.png)
 ### Creating a virtual host for your website using apache
 
 Create the directory for projectlamp using ‘mkdir’ command as follows:
@@ -98,7 +98,7 @@ To discard changes, type 'q!' and press 'enter'
 With this VirtualHost configuration, we’re telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory.If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
 
 `sudo ls /etc/apache2/sites-available`
-![Open inbound port 80](./ls-Sitesavailable.png)
+![Open inbound port 80](./images/ls-Sitesavailable.png)
 
 You can now use 'a2ensite' command to enable the new virtual host:
 
@@ -144,7 +144,7 @@ phpinfo();
 
 When you are finished, save and close the file, refresh the page and you will see a page similar to this:
 
-![Open inbound port 80](./Phpscreen.png)
+![Open inbound port 80](./images/Phpscreen.png)
 
 After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
 `sudo rm /var/www/projectlamp/index.php`
